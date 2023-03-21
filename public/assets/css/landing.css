@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-purple {
+    background-color: #6777EF;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.text-landing {
+    position: relative;
+    top: 35%;
+
+}
+
+.text-landing h1 {
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #252525;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.text-landing h1 span {
+    color: #6777EF;
+}
+
+.text-landing p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #252525;
+}
+
+.text-landing h5 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #252525;
+}
+
+.image-landing {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 20%;
+    left: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.image-landing img {
+    width: 500px;
+}
+
+button.solid-btn {
+    margin-top: 20px;
+    cursor: pointer !important;
+    padding: 10px 15px;
+    background-color: #6777EF;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.waves svg {
+    position: relative;
+    bottom: 25px;
+}
