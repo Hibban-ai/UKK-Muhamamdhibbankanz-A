@@ -10,7 +10,9 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Admin\PengaduanController as PengaduanAdmin;
+use App\Models\Pengaduan;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +44,7 @@ Route::prefix('masyarakat')->name('masyarakat')->middleware('auth')->group(funct
         Route::post('/store', [PengaduanController::class, 'store'])->name('.store');
         Route::get('/tanggapan/{no_pengaduan}', [PengaduanController::class, 'tanggapanDetail'])->name('.tanggapan.detail');
         Route::delete('/destroy/{no_pengaduan}', [PengaduanController::class, 'destroy'])->name('.destroy');
-        Route::get('/pengaduan/cetak_pdf', [PengaduanController::class, 'exportPDF']);
+        Route::get('/pengaduan/pdf', [PengaduanController::class, 'exportPDF']);
     });
 });
 
@@ -78,7 +80,10 @@ Route::prefix('webmin')->name('admin')->group(function () {
         Route::get('pengaduan-done', function (){ return view('admin.pengaduan.done'); })->name('.pengaduan-done');
         Route::get('get-done', [DatatableController::class, 'pengaduanDone'])->name('.get-done');
 
-        Route::get('laporan-generate', function (){ return view('admin.laporan.generate'); })->name('.laporan-generate');
+        Route::get('pengaduan-generate', function (){ return view('admin.pengaduan.generate'); })->name('.pengaduan-generate');
+
+        Route::get('/pdf', [PDFController::class, 'exportPDF']);
+        Route::post('/select', [PengaduanController::class, 'filter']);
 
     });
 });

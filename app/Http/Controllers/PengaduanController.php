@@ -22,7 +22,7 @@ class PengaduanController extends Controller
         return datatables()->of($data)
         ->editColumn('foto', function($row){
             $foto = asset("img/pengaduan/{$row->foto}");
-            $output = '<img class="rounded" style="width:70%; height:100px;" src="'.$foto.'">';
+            $output = '<img class="rounded" style="width:70%; height:200px;" src="'.$foto.'">';
             return $output;
         })
         ->editColumn('tgl_pengaduan', function($row){
@@ -116,14 +116,21 @@ class PengaduanController extends Controller
         }
         return $str;
     }
-
-    public function cetak_pdf()
+    
+    public function filter(Request $request)
     {
-    	$pengaduan = Pengaduan::all();
- 
-    	$pdf = PDF::loadview('pengaduan_pdf',['pengaduan'=>$pengaduan]);
-    	return $pdf->download('laporan-pengaduan-pdf');
+        $startDate = Carbon::createFromFormat('d/m/Y', '01/01/2021');
+        $endDate = Carbon::createFromFormat('d/m/Y', '06/01/2021');
+  
+        $users = Pengaduan::select('id_tanggapan', 'no_pengaduan', 'id_pengaduan', 'tanggapan', 'id_petugas', 'created_at')
+                        ->whereBetween('created_at', [$startDate, $endDate])
+                        ->get();
+  
+        dd($users);
+        
     }
+  
+   
 
     
 }

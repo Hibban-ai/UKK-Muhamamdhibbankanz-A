@@ -25,4 +25,6 @@ class Pengaduan extends Model
     public function tanggapan(){
         return $this->hasMany(Tanggapan::class, 'id_pengaduan', 'id_pengaduan');
     }
+    
+   
 }

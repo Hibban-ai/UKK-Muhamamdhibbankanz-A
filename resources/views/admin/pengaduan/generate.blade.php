@@ -5,8 +5,24 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Data Pengaduan</h5>
+                    <h5>Generate Data</h5>
                 </div>
+                
+           <div class="form-group row">
+            <label for="date" class="col-form-label col-sm-2">Form</label>
+            <div class="col-sm-3">
+                <input type="date" class="form-contol input-sm" id="fromdate" name="date">
+            </div>
+            <div class="form-group row">
+                <label for="date" class="col-form-label col-sm-2">To</label>
+                <div class="col-sm-3">
+                    <input type="date" class="form-contol input-sm" id="todate" name="date">
+                </div>
+                <button type="submit" class="btn btn-primary">search</button>
+            
+           
+
+           </div>
                 
                 <div class="card-body">
                     <div class="table-responsive">

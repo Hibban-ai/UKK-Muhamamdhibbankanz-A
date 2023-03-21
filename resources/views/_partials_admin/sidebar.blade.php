@@ -64,15 +64,13 @@
                     <li class="submenu-item {{Route::is('admin.pengaduan-undone') ? 'active' : ''}}">
                         <a href="{{route('admin.pengaduan-undone')}}">Belum Ditanggapi</a>
                     </li>
+                    <li class="submenu-item {{Route::is('admin.pengaduan-generate') ? 'active' : ''}}">
+                        <a href="{{route('admin.pengaduan-generate')}}">Laporan</a>
+                    </li>
+                    
                     </li>
                 </ul>
-            </li>
-            <li class="sidebar-item {{Route::is('admin.laporan-generate') ? 'active' : ''}}">
-                <a href="admin.laporan-generate" class="sidebar-link">
-                    <i class="bi bi-bookmark-fill"></i>
-                    <span>Laporan</span>
-                </a>
-            </li>
+            </li>   
             <li class="sidebar-item">
                 <a href="{{route('admin.logout')}}" class="sidebar-link">
                     <i class="bi bi-arrow-left-circle-fill"></i>
