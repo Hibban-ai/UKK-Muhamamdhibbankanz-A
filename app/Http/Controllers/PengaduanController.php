@@ -117,18 +117,26 @@ class PengaduanController extends Controller
         return $str;
     }
     
-    public function filter(Request $request)
-    {
-        $startDate = Carbon::createFromFormat('d/m/Y', '01/01/2021');
-        $endDate = Carbon::createFromFormat('d/m/Y', '06/01/2021');
-  
-        $users = Pengaduan::select('id_tanggapan', 'no_pengaduan', 'id_pengaduan', 'tanggapan', 'id_petugas', 'created_at')
-                        ->whereBetween('created_at', [$startDate, $endDate])
-                        ->get();
-  
-        dd($users);
-        
+    public function generatePDF(Request $request){
+        $start = Carbon::parse($request->date1);
+        $end = Carbon::parse($request->date2);
+        $data = Pengaduan::whereDate('tgl_pengaduan','<=',$end)
+        ->whereDate('tgl_pengaduan','>=',$start)->orderBy('tgl_pengaduan', 'desc')
+        ->get();
+
+
+        $pdf = PDF::loadview('admin.pengaduan-filepdf',['data'=>$data]);
+    	return $pdf->download('pengaduan-masyarakat.pdf');
+
     }
+
+    public function laporan()
+    {
+        $data = Pengaduan::get();
+       return view('admin.pengaduan-generate', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+    }
+   
   
    
 

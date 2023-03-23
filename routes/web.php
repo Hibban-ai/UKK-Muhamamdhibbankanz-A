@@ -82,8 +82,8 @@ Route::prefix('webmin')->name('admin')->group(function () {
 
         Route::get('pengaduan-generate', function (){ return view('admin.pengaduan.generate'); })->name('.pengaduan-generate');
 
-        Route::get('/pdf', [PDFController::class, 'exportPDF']);
-        Route::post('/select', [PengaduanController::class, 'filter']);
+        Route::get('/laporan', [PengaduanController::class, 'laporan'])->middleware(['auth', 'verified']);
+        Route::get('admin.generate-pdf', [PengaduanController::class, 'generatePDF']);
 
     });
 });
