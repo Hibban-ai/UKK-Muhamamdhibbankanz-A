@@ -7,21 +7,25 @@
                 <div class="card-header">
                     <h5>Generate Data</h5>
                 </div>
-                
+
            <div class="form-group row">
-            <form action="{{ url('generate-pdf') }}" method="GET">
+            <form action="{{ url('webmin/generatepdf') }}" method="GET">
                 <button type="submit" style="margin: 10px" class="btn btn-primary">Download PDF</button>
                 <input type="date" name="date1" id="">
                 <input type="date" name="date2" id="">
-              </form>
-            
-           
+              </form>
+
+            </form>
+
+
+
+
 
            </div>
-                
+
                 {{-- <div class="card-body">
                     <div class="table-responsive">
-                        
+
                         <table class="table" id="data-table">
                             <thead>
                                 <th>Nama</th>

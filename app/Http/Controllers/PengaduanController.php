@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 
-class PengaduanController extends Controller 
+class PengaduanController extends Controller
 {
     public function index(){
         $pengaduan = Pengaduan::where('nik', Auth::user()->nik)->count();
@@ -116,8 +116,9 @@ class PengaduanController extends Controller
         }
         return $str;
     }
-    
-    public function generatePDF(Request $request){
+
+    public function exportPDF(Request $request){
+
         $start = Carbon::parse($request->date1);
         $end = Carbon::parse($request->date2);
         $data = Pengaduan::whereDate('tgl_pengaduan','<=',$end)
@@ -125,7 +126,7 @@ class PengaduanController extends Controller
         ->get();
 
 
-        $pdf = PDF::loadview('admin.pengaduan-filepdf',['data'=>$data]);
+        $pdf = PDF::loadview('admin.pengaduan.filepdf',['data'=>$data]);
     	return $pdf->download('pengaduan-masyarakat.pdf');
 
     }
@@ -133,12 +134,12 @@ class PengaduanController extends Controller
     public function laporan()
     {
         $data = Pengaduan::get();
-       return view('admin.pengaduan-generate', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+       return view('admin.pengaduan.generate', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
-   
-  
-   
 
-    
+
+
+
+
 }

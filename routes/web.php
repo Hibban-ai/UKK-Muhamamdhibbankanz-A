@@ -9,10 +9,9 @@ use App\Http\Controllers\Admin\DatatableController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\MasyarakatController;
 use App\Http\Controllers\Admin\DashboardAdminController;
-use App\Http\Controllers\Admin\LaporanController;
-use App\Http\Controllers\PDFController;
 use App\Http\Controllers\Admin\PengaduanController as PengaduanAdmin;
 use App\Models\Pengaduan;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +82,7 @@ Route::prefix('webmin')->name('admin')->group(function () {
         Route::get('pengaduan-generate', function (){ return view('admin.pengaduan.generate'); })->name('.pengaduan-generate');
 
         Route::get('/laporan', [PengaduanController::class, 'laporan'])->middleware(['auth', 'verified']);
-        Route::get('admin.generate-pdf', [PengaduanController::class, 'generatePDF']);
 
+        Route::get('/generatepdf', [PengaduanController::class, 'exportPDF']);
     });
 });

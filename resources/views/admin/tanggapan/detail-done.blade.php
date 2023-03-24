@@ -32,7 +32,7 @@
                                 <span><b>{{ date('d F Y', strtotime($tanggapan->tgl_tanggapan)) }}</b></span>
                             </div>
                             <div>
-                                <a href="/pdf" class="btn btn-danger">Export PDF</a>
+                                <a href="{{ url('generatepdf') }}" class="btn btn-success mb-4">Export PDF</a>
                             </div>
 
                             <a href="{{route('admin.pengaduan-done')}}" class="float-end btn btn-primary">Kembali</a>

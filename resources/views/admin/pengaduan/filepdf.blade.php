@@ -12,7 +12,7 @@
     <p>{{ Carbon::now()->toDateTimeString() }}</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.</p>
-  
+
     <table class="table table-bordered">
         <tr>
             <th>Nama</th>
@@ -29,18 +29,18 @@
             <td>
                 @if ($item->foto)
                 <img src="{{ public_path("storage/".$item->foto) }}" height="75" width="75" alt="" />
-                @endif    
+                @endif
             </td>
                 @if ($item->status === 'tunggu')
                     <td> <button disabled style="color:white; background-color: red; padding:8px">{{ $item->status }}</button></td>
                 @elseif($item->status === 'proses')
                     <td> <button disabled style="color:white; background-color: blue; padding:8px">{{ $item->status }}</button></td>
                 @else
-                    <td> <button disabled style="color:white; background-color: green; padding:8px">{{ $item->status }}</button></td>
+                    <td> <button disabled style="color:white; background-color: green; padding:8px">{{ $item->status  }}</button></td>
                 @endif
         </tr>
         @endforeach
     </table>
-  
+
 </body>
 </html>

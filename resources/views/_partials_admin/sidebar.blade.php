@@ -6,14 +6,14 @@
                     <h2 class="text-white">Pengaduan</h2>
                 </div>
             </div>
-            
+
             <div class="theme-toggle d-flex gap-2 align-items- mt-2">
-        
+
                 <div class="form-check form-switch fs-6">
                     <input class="form-check-input me-0" type="checkbox" id="toggle-dark" style="cursor: pointer" />
                     <label class="form-check-label"></label>
                 </div>
-            
+
             </div>
         </div>
     </div>
@@ -67,10 +67,10 @@
                     <li class="submenu-item {{Route::is('admin.pengaduan-generate') ? 'active' : ''}}">
                         <a href="{{route('admin.pengaduan-generate')}}">Laporan</a>
                     </li>
-                    
+
                     </li>
                 </ul>
-            </li>   
+            </li>
             <li class="sidebar-item">
                 <a href="{{route('admin.logout')}}" class="sidebar-link">
                     <i class="bi bi-arrow-left-circle-fill"></i>
